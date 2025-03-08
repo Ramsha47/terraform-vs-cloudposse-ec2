@@ -5,6 +5,6 @@ resource "aws_instance" "bastion_host" {
   subnet_id     = var.public_subnet_id
 
   tags = {
-    Name = "${var.basemount_name}-bastion"
+    Name = "${var.name}-bastion"
   }
 }

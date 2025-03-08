@@ -36,11 +36,6 @@ variable "tags" {
   type        = map(any)
 }
 
-variable "common_tags" {
-  description = "Common tags applied to resources"
-  type        = map(any)
-}
-
 variable "availability_zones" {
   description = "List of subnet availability zones."
   type        = list(string)

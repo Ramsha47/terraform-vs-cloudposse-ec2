@@ -41,8 +41,7 @@ module "dynamic_subnets" {
     "kubernetes.io/role/elb"          = "1"
     "kubernetes.io/role/internal-elb" = "1"
   }
-  tags = var.common_tags
-
+  
   # Route tables
   public_route_table_per_subnet_enabled = true
   private_route_table_enabled           = true

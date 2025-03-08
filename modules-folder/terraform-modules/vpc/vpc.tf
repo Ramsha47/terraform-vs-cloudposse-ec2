@@ -7,5 +7,4 @@ module "vpc01" {
   dns_support_enabled      = true
   internet_gateway_enabled = true
   ipv4_primary_cidr_block  = var.vpc01_cidr
-  tags                     = var.common_tags
 }
