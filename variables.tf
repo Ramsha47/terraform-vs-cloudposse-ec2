@@ -48,3 +48,7 @@ variable "ami" {
   description = "Amazon Linux AMI in the target region."
   type        = string
 }
+
+variable "keypair_name" {
+  description = "KeyPair name"
+}

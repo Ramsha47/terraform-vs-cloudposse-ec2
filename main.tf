@@ -12,4 +12,5 @@ module "terraform-modules" {
   vpc01_private_cidr_az02  = var.vpc01_private_cidr_az02
   vpc01_public_cidr_az03   = var.vpc01_public_cidr_az03
   vpc01_private_cidr_az03  = var.vpc01_private_cidr_az03
+  keypair_name             = var.keypair_name
 }
