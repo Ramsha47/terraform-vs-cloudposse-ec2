@@ -43,5 +43,36 @@ resource "aws_security_group" "bastion_sg" {
     Name = "bastion-security-group"
   }
 }
+ 
+# Private Instance
+resource "aws_instance" "private_instance" {
+  ami                    = var.ami
+  instance_type          = "m7i.16xlarge"
+  subnet_id              = var.private_subnet_id
+  key_name               = var.key_name
+  vpc_security_group_ids = [aws_security_group.private_sg.id]
+  disable_api_termination = var.disable_api_termination
+  associate_public_ip_address = false
+ 
+  tags = { Name = "${var.name}-private" }
+}
 
+resource "aws_security_group" "private_sg" {
+  description = "Internal and external  instance access"
+  vpc_id      = data.aws_subnet.selected.vpc_id
+
+  tags = merge(var.tags, { "Name" = var.name })
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    security_groups = [aws_security_group.bastion_sg.id]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 

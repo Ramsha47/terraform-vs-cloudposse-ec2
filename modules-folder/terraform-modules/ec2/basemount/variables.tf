@@ -23,6 +23,12 @@ variable "private_subnet_id" {
   type        = string
 }
 
+variable "disable_api_termination" {
+  description = "Termination protection."
+  default     = true
+  type        = bool
+}
+
 variable "tags" {
   description = "Tags to apply to all stack resources."
   default     = {}
