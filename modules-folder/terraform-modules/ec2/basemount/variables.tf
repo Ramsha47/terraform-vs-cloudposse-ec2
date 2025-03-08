@@ -8,6 +8,11 @@ variable "name" {
   type        = string
 }
 
+variable "key_name" {
+  description = "Key pair name."
+  type        = string
+}
+
 variable "public_subnet_id" {
   description = "Target public subnet ID for deployment."
   type        = string
